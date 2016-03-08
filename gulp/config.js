@@ -16,9 +16,14 @@ module.exports = {
       files: [
         developmentAssets + '/css/*.css',
         developmentAssets + '/js/*.js',
-        developmentAssets + '/images/**',
-        developmentAssets + '/fonts/*'
+        developmentAssets + '/images/**'
       ]
+    },
+    production: {
+      server: {
+        baseDir: [production]
+      },
+      port: 9998
     }
   },
   delete: {
@@ -29,17 +34,27 @@ module.exports = {
       src:    src,
       dest:   development,
       config: src + '/_config.yml'
+    },
+    production: {
+      src:    src,
+      dest:   production,
+      config: src + '/_config.yml,' + src + '/_config.build.yml'
+    }
+  },
+  sass: {
+    src:  srcAssets + '/scss/**/*.{sass,scss}',
+    dest: developmentAssets + '/css',
+    options: {
+      outputStyle: 'expanded',
+      sourceComments: true,
+      sourceMap: './'
     }
   },
   autoprefixer: {
-    src: development + '/css/*.css',
-    dest: development + '/css',
-    options: {
-      browsers: [
-        "last 3 versions"
-      ],
-      cascade: true
-    }
+    browsers: [
+      "last 3 versions"
+    ],
+    cascade: true
   },
   browserify: {
     // Enable source maps
@@ -70,6 +85,69 @@ module.exports = {
       extensions: ['png'],
       maxImageSize: 20 * 1024, // bytes
       debug: false
+    }
+  },
+  watch: {
+    jekyll: [
+      src + '/_config.yml',
+      src + '/_config.build.yml',
+      src + '/_data/**/*.{json,yml,csv}',
+      src + '/_includes/**/*.{html,xml}',
+      src + '/_layouts/*.html',
+      src + '/_plugins/*.rb',
+      src + '/_posts/*.{markdown,md}',
+      src + '/**/*.{html,markdown,md,yml,json,txt,xml}',
+    ],
+    sass: srcAssets + '/scss/**/*.{sass,scss}',
+    scripts: srcAssets + '/js/**/*.js',
+    images: srcAssets + '/images/**/*'
+  },
+  scsslint: {
+    src: [
+        srcAssets + '/scss/**/*.{sass,scss}'
+      ],
+      options: {
+        bundleExec: true
+      }
+  },
+  jshint: {
+    src: srcAssets + '/js/*.js'
+  },
+  optimise: {
+    css: {
+      src:  developmentAssets + '/css/*.css',
+      dest: productionAssets + '/css/',
+      options: {
+        autoprefixer: false
+      }
+    },
+    js: {
+      src:  developmentAssets + '/js/*.js',
+      dest: productionAssets + '/js/',
+      options: {}
+    },
+    images: {
+      src:  developmentAssets + '/images/**/*.{jpg,jpeg,png,gif}',
+      dest: productionAssets + '/images/',
+      options: {
+        interlaced: true
+      },
+      plugins: {
+        png: {
+          name: 'imagemin-pngquant',
+          options: {
+            quality: '70-80',
+            speed: 1
+          }
+        },
+        jpg: {
+          name: 'imagemin-jpeg-recompress',
+          options: {
+            accurate: true,
+            quality: 'high'
+          }
+        }
+      }
     }
   }
 };

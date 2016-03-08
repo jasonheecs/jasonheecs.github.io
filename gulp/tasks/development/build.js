@@ -8,10 +8,10 @@ gulp.task('build', function(callback) {
   runSequence('delete',
   [
     'jekyll',
+    'sass',
     'scripts',
     'images',
   ],
-  'autoprefixer',
   'base64',
   callback);
 });
