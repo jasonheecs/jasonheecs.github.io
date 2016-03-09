@@ -100,7 +100,7 @@ module.exports = {
   },
   scsslint: {
     src: [
-        srcAssets + '/scss/**/*.{sass,scss}'
+        src + '/_scss/**/*.{sass,scss}'
       ],
       options: {
         bundleExec: true

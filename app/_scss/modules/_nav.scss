@@ -1,0 +1,13 @@
+.nav__list {
+	list-style: none;
+}
+
+.nav__item {
+	display: inline-block;
+	margin: 0 20px;
+}
+
+.nav__link {
+	color: $color-secondary;
+	text-decoration: none;
+}

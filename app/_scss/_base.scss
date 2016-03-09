@@ -1,0 +1,21 @@
+html {
+	font-size: 90%;
+
+	@media screen and (min-width: $mq-medium) {
+		font-size: 95%;
+	}
+
+	@media screen and (min-width: $mq-large) {
+		font-size: 100%;
+	}
+}
+
+body {
+	background: $color-primary;
+	color: $color-secondary;
+	font-family: $font-primary;
+}
+
+a {
+	color: lighten($color-secondary, 15%);
+}

@@ -1,0 +1,39 @@
+//	Set a rem font size with pixel fallback
+//	Usage: @include font-size(14px)
+@function calculate-rem($size) {
+	$rem-size: $size / $base-font-size;
+	@return $rem-size * 1rem;
+}
+
+@mixin font-size($size) {
+	// scss-lint:disable DuplicateProperty
+	font-size: $size;
+	font-size: calculate-rem($size);
+}
+
+//	Generate a box-shadow color for the box shadow effect of an input element
+@function generate-border-shadow-color($input-color) {
+	@return lighten(saturate(adjust-hue($input-color, -.2273), 23.6585), 14.9020)
+}
+
+//	Set the color of placeholder text in input fields
+@mixin set-placeholder-color($color) {
+	// scss-lint:disable PseudoElement, VendorPrefix
+	::-webkit-input-placeholder { // WebKit, Blink, Edge
+	    color: $color;
+	}
+	:-moz-placeholder { // Mozilla Firefox 4 to 18
+	   color: $color;
+	   opacity: 1;
+	}
+	::-moz-placeholder { // Mozilla Firefox 19+
+	   color: $color;
+	   opacity: 1;
+	}
+	:-ms-input-placeholder { // Internet Explorer 10-11
+	   color: $color;
+	}
+	:placeholder-shown { // Standard (https://drafts.csswg.org/selectors-4/#placeholder)
+	  color: $color;
+	}
+}
