@@ -19,4 +19,4 @@ github_username:  jekyll
 
 # Build settings
 markdown: kramdown
-exclude: ["node_modules", "gulpfile.js", "package.json", "_scss", "css"]
+exclude: ["node_modules", "gulpfile.js", "package.json", "_scss", "css", "_js"]

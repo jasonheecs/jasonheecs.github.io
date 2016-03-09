@@ -10,13 +10,13 @@ module.exports = {
   browsersync: {
     development: {
       server: {
-        baseDir: [development, build, src]
+        baseDir: [development, src]
       },
       port: 9999,
       files: [
         development + '/css/*.css',
-        developmentAssets + '/js/*.js',
-        developmentAssets + '/images/**'
+        development + '/js/*.js',
+        development + '/images/*.{jpg,jpeg,png,gif}'
       ]
     },
     production: {
@@ -64,18 +64,14 @@ module.exports = {
     // A separate bundle will be generated for each
     // bundle config in the list below
     bundleConfigs: [{
-      entries:    './' + srcAssets + '/js/application.js',
-      dest:       developmentAssets + '/js',
-      outputName: 'application.js'
-    }, {
-      entries:    './' + srcAssets + '/js/head.js',
-      dest:       developmentAssets + '/js',
-      outputName: 'head.js'
+      entries:    './' + src + '/_js/app.js',
+      dest:       development + '/js',
+      outputName: 'app.js'
     }]
   },
   images: {
-    src:  srcAssets + '/images/**/*',
-    dest: developmentAssets + '/images'
+    src:  src + '/images/**/*',
+    dest: development + '/images'
   },
   base64: {
     src: development + '/css/*.css',
@@ -99,8 +95,8 @@ module.exports = {
       src + '/**/*.{html,markdown,md,yml,json,txt,xml}',
     ],
     sass: src + '/_scss/**/*.{sass,scss}',
-    scripts: srcAssets + '/js/**/*.js',
-    images: srcAssets + '/images/**/*'
+    scripts: src + '/_js/**/*.js',
+    images: src + '/images/**/*'
   },
   scsslint: {
     src: [
