@@ -15,6 +15,6 @@ gulp.task('jekyll', function(done) {
   .on('close', done);
 });
 
-gulp.task('jekyll-rebuild', ['jekyll'], function() {
+gulp.task('jekyll-rebuild', ['build'], function() {
   browsersync.reload();
 });

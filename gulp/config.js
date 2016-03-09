@@ -14,7 +14,7 @@ module.exports = {
       },
       port: 9999,
       files: [
-        developmentAssets + '/css/*.css',
+        development + '/css/*.css',
         developmentAssets + '/js/*.js',
         developmentAssets + '/images/**'
       ]
@@ -42,8 +42,8 @@ module.exports = {
     }
   },
   sass: {
-    src:  srcAssets + '/scss/**/*.{sass,scss}',
-    dest: developmentAssets + '/css',
+    src:  src + '/_scss/**/*.{sass,scss}',
+    dest: development + '/css',
     options: {
       outputStyle: 'expanded',
       sourceComments: true,
@@ -98,7 +98,7 @@ module.exports = {
       src + '/_posts/*.{markdown,md}',
       src + '/**/*.{html,markdown,md,yml,json,txt,xml}',
     ],
-    sass: srcAssets + '/scss/**/*.{sass,scss}',
+    sass: src + '/_scss/**/*.{sass,scss}',
     scripts: srcAssets + '/js/**/*.js',
     images: srcAssets + '/images/**/*'
   },
