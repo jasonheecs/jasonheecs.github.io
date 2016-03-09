@@ -13,9 +13,9 @@ gulp.task('build:production', function(callback) {
   ],
   'base64',
   [
-    'optimize:css',
-    'optimize:js',
-    'optimize:images'
+    'optimise:css',
+    'optimise:js',
+    'optimise:images'
   ],
   'revision',
   'rev:collect',

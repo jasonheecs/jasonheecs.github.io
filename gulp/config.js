@@ -149,5 +149,30 @@ module.exports = {
         }
       }
     }
+  },
+  revision: {
+    src: {
+      assets: [
+        productionAssets + '/css/*.css',
+        productionAssets + '/js/*.js',
+        productionAssets + '/images/**/*'
+      ],
+      base: production
+    },
+    dest: {
+      assets: production,
+      manifest: {
+        name: 'manifest.json',
+        path: productionAssets
+      }
+    }
+  },
+  collect: {
+    src: [
+      productionAssets + '/manifest.json',
+      production + '/**/*.{html,xml,txt,json,css,js}',
+      '!' + production + '/feed.xml'
+    ],
+    dest: production
   }
 };

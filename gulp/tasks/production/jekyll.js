@@ -11,6 +11,6 @@ gulp.task('jekyll:production', function(done) {
 
   var bundleCmd = process.platform === "win32" ? "bundle.bat" : "bundle";
 
-  return cp.spawn('bundleCmd', ['exec', 'jekyll', 'build', '-q', '--source=' + config.src, '--destination=' + config.dest, '--config=' + config.config], { stdio: 'inherit' })
+  return cp.spawn(bundleCmd, ['exec', 'jekyll', 'build', '-q', '--source=' + config.src, '--destination=' + config.dest, '--config=' + config.config], { stdio: 'inherit' })
   .on('close', done);
 });
