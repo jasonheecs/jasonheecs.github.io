@@ -3,7 +3,6 @@ var build             = 'build';
 var development       = 'build/development';
 var production        = 'build/production';
 var srcAssets         = 'app/_assets';
-var developmentAssets = 'build/assets';
 var productionAssets  = 'build/production/assets';
 
 module.exports = {
@@ -27,7 +26,7 @@ module.exports = {
     }
   },
   delete: {
-    src: [developmentAssets]
+    src: [productionAssets]
   },
   jekyll: {
     development: {
@@ -111,20 +110,20 @@ module.exports = {
   },
   optimise: {
     css: {
-      src:  developmentAssets + '/css/*.css',
-      dest: productionAssets + '/css/',
+      src:  development + '/css/*.css',
+      dest: productionAssets + '/css',
       options: {
         autoprefixer: false
       }
     },
     js: {
-      src:  developmentAssets + '/js/*.js',
-      dest: productionAssets + '/js/',
+      src:  development+ '/js/*.js',
+      dest: productionAssets + '/js',
       options: {}
     },
     images: {
-      src:  developmentAssets + '/images/**/*.{jpg,jpeg,png,gif}',
-      dest: productionAssets + '/images/',
+      src:  development + '/images/**/*.{jpg,jpeg,png,gif}',
+      dest: production + '/images',
       options: {
         interlaced: true
       },
@@ -150,22 +149,21 @@ module.exports = {
     src: {
       assets: [
         productionAssets + '/css/*.css',
-        productionAssets + '/js/*.js',
-        productionAssets + '/images/**/*'
+        productionAssets + '/js/*.js'
       ],
-      base: production
+      base: productionAssets
     },
     dest: {
       assets: production,
       manifest: {
         name: 'manifest.json',
-        path: productionAssets
+        path: production
       }
     }
   },
   collect: {
     src: [
-      productionAssets + '/manifest.json',
+      production + '/manifest.json',
       production + '/**/*.{html,xml,txt,json,css,js}',
       '!' + production + '/feed.xml'
     ],
