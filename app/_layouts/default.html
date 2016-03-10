@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
-
   {% include head.html %}
-
   <body>
-
+    <canvas></canvas>
     {% include header.html %}
-
     {% comment %}
     <div class="page-content">
       <div class="wrapper">
@@ -14,8 +11,6 @@
       </div>
     </div>
     {% endcomment %}
-
-
+    <script type="text/javascript" src="{{ "/js/app.js" | prepend: site.baseurl }}"></script>
   </body>
-
 </html>
