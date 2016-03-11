@@ -106,7 +106,7 @@ module.exports = {
       }
   },
   jshint: {
-    src: srcAssets + '/js/*.js'
+    src: src + '/_js/*.js'
   },
   optimise: {
     css: {

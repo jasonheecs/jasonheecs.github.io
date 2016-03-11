@@ -12,6 +12,8 @@ html {
 
 body {
 	background: $color-primary;
+	//scss-lint:disable DuplicateProperty, ColorVariable
+	background: linear-gradient(to bottom, #fff 0%, #f5f5f5 120%);
 	color: $color-secondary;
 	font-family: $font-primary;
 }

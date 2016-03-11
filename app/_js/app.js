@@ -1,1 +1,5 @@
-console.log('hello world 2');
+var ShapeShifter = require('./shape-shifter');
+
+document.addEventListener('DOMContentLoaded', function() {
+	ShapeShifter.init();
+});

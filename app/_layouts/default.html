@@ -2,7 +2,7 @@
 <html>
   {% include head.html %}
   <body>
-    <canvas></canvas>
+    <canvas class="canvas"></canvas>
     {% include header.html %}
     {% comment %}
     <div class="page-content">
@@ -12,5 +12,6 @@
     </div>
     {% endcomment %}
     <script type="text/javascript" src="{{ "/js/app.js" | prepend: site.baseurl }}"></script>
+    <!--<script type="text/javascript" src="{{ "index.js" | prepend: site.baseurl }}"></script>-->
   </body>
 </html>
