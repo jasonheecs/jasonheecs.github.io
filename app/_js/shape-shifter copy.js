@@ -45,8 +45,8 @@ var Drawing = (function() {
 
 		getArea: function() {
 			return {
-				width: canvas.width,
-				height: canvas.height
+				w: canvas.width,
+				h: canvas.height
 			};
 		},
 
@@ -91,10 +91,7 @@ var Dot = function(x, y) {
 	this.e = 0.07;
 	this.s = true;
 
-	var rgbNum = Math.floor(Math.random() * (100 - 0)) + 0; //generate a random rgba value between 0 and 99
-
-	this.Color = new Color(rgbNum, rgbNum, rgbNum, this.Point.a);
-
+	this.Color = new Color(31, 31, 31, this.Point.a);
 
 	this.t = this.clone();
 	this.q = [];
@@ -201,15 +198,15 @@ var ShapeBuilder = (function() {
 	var gap = 13;
 	var shapeCanvas = document.createElement('canvas');
 	var shapeContext = shapeCanvas.getContext('2d');
-	var fontSize = 250;
+	var fontSize = 500;
 	var fontFamily = 'Helvetica Neue, Helvetica, Arial, sans-serif';
 
 	function fit() {
 		shapeCanvas.width = Math.floor(window.innerWidth / gap) * gap;
 		shapeCanvas.height = Math.floor(window.innerHeight / gap) * gap;
-		shapeContext.fillStyle = 'red';
-		shapeContext.textBaseline = 'middle';
-		shapeContext.textAlign = 'center';
+		shapeCanvas.fillStyle = 'red';
+		shapeCanvas.textBaseline = 'middle';
+		shapeCanvas.textAlign = 'center';
 	}
 
 	function processCanvas() {
@@ -263,6 +260,7 @@ var ShapeBuilder = (function() {
 		},
 
 		letter: function(l) {
+			console.log(l);
 			var s = 0;
 
 			setFontSize(fontSize);
@@ -319,7 +317,7 @@ var Shape = (function() {
 			compensate();
 
 			if (shapeBuilder.dots.length > dots.length) {
-				size = (shapeBuilder.dots.length - dots.length) + 500;
+				size = shapeBuilder.dots.length - dots.length;
 				for (d = 1; d <= size; d++) {
 					dots.push(new Dot(area.width / 2, area.height / 2));
 				}
@@ -380,6 +378,7 @@ var Shape = (function() {
 		},
 
 		render: function() {
+			// console.log(dots);
 			dots.forEach(function(dot) {
 				dot.render();
 			});
@@ -434,30 +433,7 @@ var Sequencer = (function() {
 				default:
 					Shape.switchShape(ShapeBuilder.letter(current[0] === cmd ? 'Error' : current));
 			}
-		}, 5000, sequence.length);
-	}
-
-	function loopAction(value) {
-		var action;
-		var current;
-		sequence = typeof(value) === 'object' ? value : sequence.concat(value.split('|'));
-		var seqCopy = sequence.slice();
-
-		timedAction(function() {
-			current = sequence.shift();
-			action = getAction(current);
-			value = getValue(current);
-			console.log(current);
-
-			switch (action) {
-				default:
-					Shape.switchShape(ShapeBuilder.letter(current[0] === cmd ? 'Error' : current));
-			}
-
-			if (sequence.length === 1) {
-				sequence = sequence.concat(seqCopy);
-			}
-		}, 5000);
+		}, 2000, sequence.length);
 	}
 
 	function reset(destroy) {
@@ -483,8 +459,7 @@ var Sequencer = (function() {
 		init: function() {
 			bindEvents();
 		},
-		performAction: performAction,
-		loopAction: loopAction
+		performAction: performAction
 	};
 })();
 
@@ -493,7 +468,7 @@ module.exports = {
 		Drawing.init('.canvas-new');
 		ShapeBuilder.init();
 
-		Sequencer.loopAction('Web Developer|Singaporean|Gamer|Bookworm|History Geek');
+		Sequencer.performAction('Shape|Shifter|Type|to start|#icon thumbs-up|#countdown 3||');
 
 		Drawing.loop(function() {
 			Shape.render();

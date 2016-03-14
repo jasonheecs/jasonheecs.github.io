@@ -13,14 +13,14 @@ var S = {
 
     S.Drawing.init('.canvas');
     S.ShapeBuilder.init();
-    S.UI.init();
-    document.body.classList.add('body--ready');
+    // S.UI.init();
+    // document.body.classList.add('body--ready');
 
-    if (i !== -1) {
-      S.UI.simulate(decodeURI(action).substring(i + 3));
-    } else {
-      S.UI.simulate('Shape|Shifter|Type|to start|#icon thumbs-up|#countdown 3||');
-    }
+    // if (i !== -1) {
+    //   S.UI.simulate(decodeURI(action).substring(i + 3));
+    // } else {
+      S.UI.simulate('Web Developer');
+    // }
 
     S.Drawing.loop(function () {
       S.Shape.render();
@@ -332,14 +332,14 @@ S.UI = (function () {
 
   return {
     init: function () {
-      bindEvents();
-      input.focus();
+      // bindEvents();
+      // input.focus();
 
-      if (isTouch) {
-        document.body.classList.add('touch');
-      }
+      // if (isTouch) {
+      //   document.body.classList.add('touch');
+      // }
 
-      S.UI.Tabs.init();
+      // S.UI.Tabs.init();
     },
 
     simulate: function (action) {
@@ -665,6 +665,8 @@ S.Shape = (function () {
 
       width = n.w;
       height = n.h;
+
+      // console.log('old', width, height);
 
       compensate();
 
