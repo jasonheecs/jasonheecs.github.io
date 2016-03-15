@@ -66,11 +66,6 @@ module.exports = {
       entries:    './' + src + '/_js/app.js',
       dest:       development + '/js',
       outputName: 'app.js'
-    },
-    {
-      entries:    './' + src + '/_js/index.js',
-      dest:       development + '/js',
-      outputName: 'index.js'
     }]
   },
   images: {

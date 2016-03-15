@@ -3,6 +3,23 @@
  */
 'use strict';
 
+function debounce(fn, delay) {
+	var timer = null;
+	return function() {
+		var context = this;
+		var args = arguments;
+
+		clearTimeout(timer);
+		timer = setTimeout(function() {
+			fn.apply(context, args);
+		}, delay);
+	};
+}
+
+function getViewportWidth() {
+	return Math.max(document.documentElement.clientWidth, window.innerWidth);
+}
+
 var Drawing = (function() {
 	var canvas;
 	var context;
@@ -21,10 +38,9 @@ var Drawing = (function() {
 			context = canvas.getContext('2d');
 			this.adjustCanvas();
 
-			//TODO: add throttle
-			window.addEventListener('resize', function() {
+			window.addEventListener('resize', debounce(function() {
 				Drawing.adjustCanvas();
-			});
+			}), 250);
 		},
 
 		loop: function(fn) {
@@ -198,10 +214,10 @@ Dot.prototype = {
 };
 
 var ShapeBuilder = (function() {
-	var gap = 13;
+	var gap = 10;
 	var shapeCanvas = document.createElement('canvas');
 	var shapeContext = shapeCanvas.getContext('2d');
-	var fontSize = 250;
+	var fontSize = 450;
 	var fontFamily = 'Helvetica Neue, Helvetica, Arial, sans-serif';
 
 	function fit() {
@@ -258,8 +274,7 @@ var ShapeBuilder = (function() {
 	return {
 		init: function() {
 			fit();
-			//TODO: throttle
-			window.addEventListener('resize', fit);
+			window.addEventListener('resize', debounce(fit));
 		},
 
 		letter: function(l) {
@@ -290,11 +305,11 @@ var Shape = (function() {
 		var area = Drawing.getArea();
 
 		cx = area.width / 2 - width / 2;
-		cy = area.height / 2 - height / 2;
+		cy = area.height / 1.35 - height / 2;
 	}
 
 	return {
-		shuffleIde: function() {
+		shuffleIdle: function() {
 			var area = Drawing.getArea();
 
 			dots.forEach(function(dot) {
@@ -447,7 +462,6 @@ var Sequencer = (function() {
 			current = sequence.shift();
 			action = getAction(current);
 			value = getValue(current);
-			console.log(current);
 
 			switch (action) {
 				default:
@@ -469,19 +483,15 @@ var Sequencer = (function() {
 		}
 	}
 
-	function bindEvents() {
-		window.addEventListener('resize', function () {
-	      clearTimeout(resizeTimer);
-	      resizeTimer = setTimeout(function () {
-	        Shape.shuffleIdle();
-	        reset(true);
-	      }, 500);
-	    });
-	}
-
 	return {
 		init: function() {
-			bindEvents();
+			window.addEventListener('resize', debounce(function() {
+				Shape.shuffleIdle();
+
+				if (getViewportWidth() < 768) {
+					reset(true);
+				}
+			}), 500);
 		},
 		performAction: performAction,
 		loopAction: loopAction
@@ -490,10 +500,11 @@ var Sequencer = (function() {
 
 module.exports = {
 	init: function() {
-		Drawing.init('.canvas-new');
+		Drawing.init('.canvas');
 		ShapeBuilder.init();
 
-		Sequencer.loopAction('Web Developer|Singaporean|Gamer|Bookworm|History Geek');
+		Sequencer.init();
+		Sequencer.loopAction('WEB DEVELOPER|SINGAPOREAN| Gamer |BOOKWORM|HISTORY GEEK');
 
 		Drawing.loop(function() {
 			Shape.render();

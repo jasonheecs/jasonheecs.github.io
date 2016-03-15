@@ -2,4 +2,8 @@
 @import 'mixins';
 @import 'base';
 
-@import 'modules/nav';
+@import 'components/flexbox';
+
+@import 'modules/nav',
+		'modules/canvas',
+		'modules/hero';
