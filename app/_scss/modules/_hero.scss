@@ -27,6 +27,6 @@
 
 .hero__tag {
 	@include font-size(60px);
-	color: lighten($color-secondary, 25%);
+	color: lighten($color-secondary, 60%);
 	margin-left: 3px;
 }

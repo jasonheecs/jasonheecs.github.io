@@ -217,14 +217,14 @@ var ShapeBuilder = (function() {
 	var gap = 10;
 	var shapeCanvas = document.createElement('canvas');
 	var shapeContext = shapeCanvas.getContext('2d');
-	var fontSize = 450;
+	var fontSize = 150;
 	var fontFamily = 'Helvetica Neue, Helvetica, Arial, sans-serif';
 
 	function fit() {
 		shapeCanvas.width = Math.floor(window.innerWidth / gap) * gap;
 		shapeCanvas.height = Math.floor(window.innerHeight / gap) * gap;
 		shapeContext.fillStyle = 'red';
-		shapeContext.textBaseline = 'middle';
+		shapeContext.textBaseline = 'top';
 		shapeContext.textAlign = 'center';
 	}
 
@@ -504,7 +504,7 @@ module.exports = {
 		ShapeBuilder.init();
 
 		Sequencer.init();
-		Sequencer.loopAction('WEB DEVELOPER|SINGAPOREAN| Gamer |BOOKWORM|HISTORY GEEK');
+		Sequencer.loopAction('WEB DEVELOPER|SINGAPOREAN|VIDEO GAMER|BOOKWORM|HISTORY GEEK');
 
 		Drawing.loop(function() {
 			Shape.render();
