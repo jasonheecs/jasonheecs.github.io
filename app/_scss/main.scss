@@ -4,7 +4,9 @@
 
 @import 'components/flexbox';
 
-@import 'modules/nav',
+@import 'modules/header',
+		'modules/nav',
 		'modules/canvas',
 		'modules/hero',
-		'modules/accordion';
+		'modules/accordion',
+		'modules/footer';

@@ -1,0 +1,17 @@
+.footer {
+	@include font-size(20px);
+	padding: 80px 50px 40px;
+}
+
+.footer__title {
+	@include font-size(40px);
+}
+
+.footer__links {
+	margin: 25px 0 50px;
+	padding-left: 0;
+
+	li {
+		display: inline-block;
+	}
+}
