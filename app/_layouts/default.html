@@ -3,72 +3,9 @@
   {% include head.html %}
   <body>
     {% include header.html %}
-    <canvas class="canvas"></canvas>
-    <section class="hero">      
-      <div class="hero__name">
-        <h1>Jason <span class="hero__name--sub">Hee</span></h1>
-        <span class="hero__tag">/&gt;</span>
-      </div>
-    </section>
-    <section class="accordion">
-      <ul class="accordion__list">
-        <li class="accordion__item">
-          <div>
-            <span class="accordion__img-wrapper">
-              <img src="http://placehold.it/1200x600">
-            </span>
-            <a class="accordion__link" href="#">
-              <h2>Lorem Ipsum</h2>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </a>
-          </div>
-        </li>
-        <li class="accordion__item">
-          <div>
-            <span class="accordion__img-wrapper">
-              <img src="http://placehold.it/1200x600">
-            </span>
-            <a class="accordion__link" href="#">
-              <h2>Lorem Ipsum</h2>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </a>
-          </div>
-        </li>
-        <li class="accordion__item">
-          <div>
-            <span class="accordion__img-wrapper">
-              <img src="http://placehold.it/1200x600">
-            </span>
-            <a class="accordion__link" href="#">
-              <h2>Lorem Ipsum</h2>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </a>
-          </div>
-        </li>
-        <li class="accordion__item">
-          <div>
-            <span class="accordion__img-wrapper">
-              <img src="http://placehold.it/1200x600">
-            </span>
-            <a class="accordion__link" href="#">
-              <h2>Lorem Ipsum</h2>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </a>
-          </div>
-        </li>
-       <li class="accordion__item">
-          <div>
-            <span class="accordion__img-wrapper">
-              <img src="http://placehold.it/1200x600">
-            </span>
-            <a class="accordion__link" href="#">
-              <h2>Lorem Ipsum</h2>
-              <p>http://sprawsm.com/</p>
-            </a>
-          </div>
-        </li>
-      </ul>
-    </section>
+        
+    {{ content }}
+
     <footer class="footer">
       <h2 class="footer__title">Thanks for stopping by.</h2>
       <p>Here are a couple of other places where I hang out:</p>
@@ -78,13 +15,6 @@
       </ul>
       <p>You can email me at test@email.com</p>
     </footer>
-    {% comment %}
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </div>
-    {% endcomment %}
     <script type="text/javascript" src="{{ "/js/app.js" | prepend: site.baseurl }}"></script>
   </body>
 </html>

@@ -14,19 +14,19 @@
 	text-transform: uppercase;
 
 	h1 {
-		@include font-size(50px);
+		@include font-size(80px);
 	}
 }
 
 .hero__name--sub {
-	@include font-size(45px);
+	@include font-size(55px);
 	display: block;
 	font-weight: 400;
 	text-align: right;
 }
 
 .hero__tag {
-	@include font-size(60px);
+	@include font-size(70px);
 	color: lighten($color-secondary, 60%);
 	margin-left: 3px;
 }

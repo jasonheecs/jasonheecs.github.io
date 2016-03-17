@@ -217,14 +217,14 @@ var ShapeBuilder = (function() {
 	var gap = 10;
 	var shapeCanvas = document.createElement('canvas');
 	var shapeContext = shapeCanvas.getContext('2d');
-	var fontSize = 150;
+	var fontSize = 145;
 	var fontFamily = 'Helvetica Neue, Helvetica, Arial, sans-serif';
 
 	function fit() {
 		shapeCanvas.width = Math.floor(window.innerWidth / gap) * gap;
 		shapeCanvas.height = Math.floor(window.innerHeight / gap) * gap;
 		shapeContext.fillStyle = 'red';
-		shapeContext.textBaseline = 'top';
+		shapeContext.textBaseline = 'middle';
 		shapeContext.textAlign = 'center';
 	}
 
