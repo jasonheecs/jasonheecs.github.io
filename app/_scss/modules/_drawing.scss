@@ -1,0 +1,33 @@
+.drawing {
+	max-height: 600px;
+	position: relative;
+}
+
+.drawing__img {
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translate3d(-50%, -50%, 0);
+}
+
+.drawing__line {
+	path {
+		fill: none;
+		stroke: black;
+		stroke-width: 3;
+	}
+}
+
+path{
+	&.line-round {
+		stroke-linecap: round;
+	}
+
+	&.stroke-medium {
+		stroke-width: 2;
+	}
+
+	&.stroke-thin {
+		stroke-width: 1;
+	}
+}
