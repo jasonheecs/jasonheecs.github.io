@@ -2,28 +2,28 @@
 layout: posts
 ---
 <article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
-	<h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-	<p class="post-link"><a href="{{ page.link }}" target="_blank">{{ page.link }}</a></p>
-	<div class="post-content" itemprop="articleBody">
+	<h1 class="post-title wow fadeInUp" itemprop="name headline">{{ page.title }}</h1>
+	<p class="post-link wow fadeInUp" data-wow-delay=".15s"><a href="{{ page.link }}" target="_blank">{{ page.link }}</a></p>
+	<div class="post-content wow fadeInUp" itemprop="articleBody" data-wow-delay=".3s">
 		{{ content }}
 	</div>
 	
 	<div class="screens">
 		<figure>
-			<div class="drawing drawing--desktop animated--vp fadeInUp" data-wow-duration="2s">
-				<img src="{{ page.images.baseUrl }}{{ page.images.desktop.filename }}" alt="{{ page.title }}" title="{{ page.title }}" class="drawing__img">
+			<div class="drawing drawing--desktop wow fadeInUp" data-wow-duration="2s">
+				<img src="{{ page.images.baseUrl }}{{ page.images.desktop.filename }}" alt="{{ page.title }}" title="{{ page.title }}" class="drawing__img drawing__img--hidden">
 				{% include drawing-desktop.svg %}
 			</div>
 		</figure>
 		<figure>
-			<div class="drawing animated--vp fadeInUp" data-wow-duration="2s">
-				<img src="{{ page.images.baseUrl }}{{ page.images.tablet.filename }}" alt="{{ page.title }}" title="{{ page.title }}" class="drawing__img">
+			<div class="drawing wow fadeInUp" data-wow-duration="2s">
+				<img src="{{ page.images.baseUrl }}{{ page.images.tablet.filename }}" alt="{{ page.title }}" title="{{ page.title }}" class="drawing__img drawing__img--hidden">
 				{% include drawing-tablet.svg %}
 			</div>
 		</figure>
 		<figure>
-			<div class="drawing animated--vp fadeInUp" data-wow-duration="2s">
-				<img src="{{ page.images.baseUrl }}{{ page.images.mobile.filename }}" alt="{{ page.title }}" title="{{ page.title }}" class="drawing__img">
+			<div class="drawing wow fadeInUp" data-wow-duration="2s">
+				<img src="{{ page.images.baseUrl }}{{ page.images.mobile.filename }}" alt="{{ page.title }}" title="{{ page.title }}" class="drawing__img drawing__img--hidden">
 				{% include drawing-mobile.svg %}
 			</div>
 		</figure>

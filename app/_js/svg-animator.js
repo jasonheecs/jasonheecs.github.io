@@ -4,21 +4,21 @@
 
 require('vivus');
 
-var svgIds = ['desktop', 'tablet', 'mobile'];
+function playSVG(svgId) {
+	if (document.getElementById(svgId)) {
+		var vivus = new Vivus(svgId, {
+			duration: 100,
+			type: 'async',
+			start: 'manual'
+		}, function(vivus) {
+			var img = vivus.el.parentNode.querySelector('.drawing__img');
+			img.classList.remove('drawing__img--hidden');
+		});
 
-function init() {
-	svgIds.forEach(function(id) {
-		if (document.getElementById(id)) {
-			new Vivus(id, {
-				duration: 100,
-				type: 'async'
-			}, function() {
-				console.log('svg anim callback');
-			});
-		}
-	});
+		vivus.play();
+	}
 }
 
 module.exports = {
-	init: init
+	play: playSVG
 };

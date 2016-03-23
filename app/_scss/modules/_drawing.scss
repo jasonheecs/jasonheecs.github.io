@@ -12,6 +12,11 @@
 	position: absolute;
 	top: 50%;
 	transform: translate3d(-50%, -50%, 0);
+	transition: opacity .4s;
+}
+
+.drawing__img--hidden {
+	opacity: 0;
 }
 
 .drawing__line {
