@@ -15,7 +15,7 @@ layout: default
     <li class="accordion__item">
       <div>
         <span class="accordion__img-wrapper">
-          <img src="http://placehold.it/1200x600">
+          <img src="{{ post.images.baseUrl }}{{ post.images.thumbnail.filename }}" alt="{{ post.title }}" title="{{ post.title }}">
         </span>
         <a class="accordion__link" href="{{ post.url | prepend: site.baseurl }}">
           <h2>{{ post.title }}</h2>
