@@ -1,3 +1,18 @@
 .post {
 	padding-top: 50px;
 }
+
+.post-title {
+	@include font-size(48px);
+	margin-bottom: .15em;
+	margin-top: 1.2em;
+}
+
+.post-link {
+	margin: 0 0 3em;
+}
+
+.post-content {
+	margin-bottom: 8em;
+	text-align: center;
+}

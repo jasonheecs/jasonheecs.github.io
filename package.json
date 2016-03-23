@@ -11,6 +11,7 @@
   "devDependencies": {
     "browser-sync": "^2.11.1",
     "browserify": "^13.0.0",
+    "browserify-shim": "^3.8.11",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
@@ -38,5 +39,16 @@
     "run-sequence": "^1.1.5",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "jquery": "global:jQuery",
+    "waypoints": "global:Waypoint",
+    "vivus": "global:Vivus",
+    "wow": "global:WOW"
   }
 }

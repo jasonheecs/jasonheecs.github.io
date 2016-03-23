@@ -3,6 +3,10 @@
 	position: relative;
 }
 
+.drawing--desktop {
+	margin-bottom: 140px;
+}
+
 .drawing__img {
 	left: 50%;
 	position: absolute;
@@ -18,7 +22,7 @@
 	}
 }
 
-path{
+path {
 	&.line-round {
 		stroke-linecap: round;
 	}

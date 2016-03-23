@@ -1,10 +1,14 @@
 @import 'variables';
 @import 'mixins';
+
+@import 'vendor/animate';
+
 @import 'base';
 
 @import 'components/flexbox';
 
-@import 'modules/header',
+@import 'modules/container',
+		'modules/header',
 		'modules/nav',
 		'modules/canvas',
 		'modules/hero',
