@@ -17,7 +17,7 @@ function debounce(fn, delay) {
 }
 
 function getViewportWidth() {
-	return Math.max(document.documentElement.clientWidth, window.innerWidth);
+	return document.documentElement.clientWidth || document.body.clientWidth || window.innerWidth;
 }
 
 var Drawing = (function() {
@@ -51,7 +51,7 @@ var Drawing = (function() {
 		},
 
 		adjustCanvas: function() {
-			canvas.width = window.innerWidth;
+			canvas.width = getViewportWidth();
 			canvas.height = window.innerHeight;
 		},
 

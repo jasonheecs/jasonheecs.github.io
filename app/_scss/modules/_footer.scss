@@ -1,5 +1,7 @@
 .footer {
 	@include font-size(20px);
+	background: $color-secondary;
+	color: $color-primary;
 	padding: 80px 50px 40px;
 }
 
