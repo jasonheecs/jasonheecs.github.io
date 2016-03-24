@@ -2,6 +2,7 @@ $accordion-no-of-items: 5;
 $accordion-item-height: 600px;
 
 .accordion {
+	margin-top: 20px;
 	overflow: hidden;
 }
 
@@ -19,6 +20,16 @@ $accordion-item-height: 600px;
 	vertical-align: bottom;
 	width: 100%;
 
+	// &::after {
+	// 	content: '';
+	// 	position: absolute;
+	// 	top: 0;
+	// 	bottom: 0;
+	// 	left: 0;
+	// 	right: 0;
+	// 	background: rgba(#000, 0.65);
+	// }
+
 	@media screen and (min-width: $mq-large) {
 		display: table-cell;
 		transition: all .5s;
@@ -28,9 +39,15 @@ $accordion-item-height: 600px;
 
 .accordion__img-wrapper {
 	position: absolute;
+
+	img {
+		filter: contrast(50%);
+		transition: filter .35s linear;
+	}
 }
 
 .accordion__link {
+	background: rgba($color-secondary, .65);
 	display: block;
 	min-height: $accordion-item-height;
 	padding: 15px 20px;
@@ -73,13 +90,17 @@ $accordion-item-height: 600px;
 			width: 60%;
 
 			.accordion__link {
-				background: rgba($color-primary, .4);
+				background: rgba($color-secondary, .2);
 			}
 
 			.accordion__link * {
 				opacity: 1;
 				transform: translate3d(0, 0, 0);
 			}
+		}
+
+		.accordion__img-wrapper img {
+			filter: contrast(100%);
 		}
 	}
 }

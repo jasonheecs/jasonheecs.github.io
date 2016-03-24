@@ -29,3 +29,11 @@ layout: posts
 		</figure>
 	</div>
 </article>
+<div class="post-nav">
+	{% if page.previous.url %}
+		<a class="post-nav__link post-nav__link--prev" href="{{ page.previous.url }}">Previous Work</a>
+	{% endif %}
+	{% if page.next.url %}
+		<a class="post-nav__link post-nav__link--next" href="{{ page.next.url }}">Next Work</a>
+	{% endif %}
+</div>
