@@ -20,16 +20,6 @@ $accordion-item-height: 600px;
 	vertical-align: bottom;
 	width: 100%;
 
-	// &::after {
-	// 	content: '';
-	// 	position: absolute;
-	// 	top: 0;
-	// 	bottom: 0;
-	// 	left: 0;
-	// 	right: 0;
-	// 	background: rgba(#000, 0.65);
-	// }
-
 	@media screen and (min-width: $mq-large) {
 		display: table-cell;
 		transition: all .5s;
@@ -41,13 +31,13 @@ $accordion-item-height: 600px;
 	position: absolute;
 
 	img {
-		filter: contrast(50%);
-		transition: filter .35s linear;
+		filter: grayscale(100%);
+		transition: filter .5s linear;
 	}
 }
 
 .accordion__link {
-	background: rgba($color-secondary, .65);
+	background: rgba($color-secondary, .68);
 	display: block;
 	min-height: $accordion-item-height;
 	padding: 15px 20px;
@@ -57,7 +47,7 @@ $accordion-item-height: 600px;
 	z-index: 1;
 
 	* {
-		overflow: hidden;
+		color: $color-primary;
 		position: relative;
 		top: ($accordion-item-height / 3) * 2;
 		white-space: nowrap;
@@ -70,10 +60,22 @@ $accordion-item-height: 600px;
 	}
 
 	h2 {
+		position: relative;
 		text-overflow: clip;
+
+		&::after {
+			background: lighten($color-secondary, 60%);
+			bottom: -10px;
+			content: '';
+			height: 2px;
+			left: 0;
+			position: absolute;
+			width: 70px;
+		}
 	}
 
 	p {
+		overflow: hidden;
 		text-overflow: ellipsis;
 		transition-delay: .2s;
 	}
@@ -90,17 +92,17 @@ $accordion-item-height: 600px;
 			width: 60%;
 
 			.accordion__link {
-				background: rgba($color-secondary, .2);
+				background: rgba($color-secondary, .45);
 			}
 
 			.accordion__link * {
 				opacity: 1;
 				transform: translate3d(0, 0, 0);
 			}
-		}
 
-		.accordion__img-wrapper img {
-			filter: contrast(100%);
+			.accordion__img-wrapper img {
+				filter: grayscale(0%);
+			}
 		}
 	}
 }
