@@ -62,6 +62,7 @@ $accordion-item-height: 600px;
 	h2 {
 		position: relative;
 		text-overflow: clip;
+		transition-delay: .05s;
 
 		&::after {
 			background: lighten($color-secondary, 60%);

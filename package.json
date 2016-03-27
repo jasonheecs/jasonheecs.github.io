@@ -50,5 +50,8 @@
     "waypoints": "global:Waypoint",
     "vivus": "global:Vivus",
     "wow": "global:WOW"
+  },
+  "browser": {
+    "smoothstate": "./app/_js/lib/jquery.smoothState.js"
   }
 }
