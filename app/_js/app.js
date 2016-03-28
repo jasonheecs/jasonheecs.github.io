@@ -5,12 +5,16 @@ var ViewportAnimator = require('./viewport-animator');
 var Nav = require('./nav');
 var Smoothstate = require('./smoothstate');
 
-document.addEventListener('DOMContentLoaded', function() {
+function init() {
 	if (document.querySelector('.canvas')) {
 		ShapeShifter.init();
 	}
 
 	Nav.init();
 	ViewportAnimator.init();
-	Smoothstate.init();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+	init();
+	Smoothstate.init(init);
 });

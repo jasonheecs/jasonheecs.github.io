@@ -1,0 +1,27 @@
+.m-scene {
+	.scene-element {
+		animation-duration: .25s;
+		animation-fill-mode: both;
+		transition-timing-function: ease-in;
+	}
+
+	.scene-element--fade {
+		animation-name: fadeInUpSmall;
+	}
+
+	&.exiting .scene-element {
+		animation-direction: alternate-reverse;
+	}
+}
+
+@keyframes fadeInUpSmall {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

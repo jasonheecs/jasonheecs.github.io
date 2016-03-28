@@ -15,7 +15,7 @@ function init() {
 	offset = -$('#header').outerHeight();
 
 	$nav.on('click', 'a', function(evt) {
-		if (this.id === 'nav-works') {
+		if (this.id === 'nav-works' && document.getElementById('works')) {
 			evt.preventDefault();
 			setScroll($('#works'));
 		} else if (this.id === 'nav-contact') {
@@ -26,5 +26,6 @@ function init() {
 }
 
 module.exports = {
-	init: init
+	init: init,
+	scrollTo: setScroll
 };

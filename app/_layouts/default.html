@@ -2,14 +2,19 @@
 <html>
   {% include head.html %}
   <body>
-    {% include header.html %}
-        
-    {{ content }}
+  	<div id="wrapper" class="m-scene">
+	    {% include header.html %}
+		
+		<main class="scene-element scene-element--fade">
+			{{ content }}
 
-    {% include footer.html %}
+		    {% include footer.html %}
+		</main>
+	</div>
     <script src="//code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.0/jquery.scrollTo.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/vivus/0.3.0/vivus.min.js"></script>
     <script src="{{ "/js/app.js" | prepend: site.baseurl }}"></script>
   </body>
 </html>
