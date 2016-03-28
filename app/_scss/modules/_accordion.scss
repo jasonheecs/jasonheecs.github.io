@@ -1,5 +1,5 @@
 $accordion-no-of-items: 5;
-$accordion-item-height: 600px;
+$accordion-item-height: 800px;
 
 .accordion {
 	margin-top: 20px;
@@ -49,7 +49,7 @@ $accordion-item-height: 600px;
 	* {
 		color: $color-primary;
 		position: relative;
-		top: ($accordion-item-height / 3) * 2;
+		top: ($accordion-item-height / 4) * 3;
 		white-space: nowrap;
 
 		@media screen and (min-width: $mq-large) {
@@ -60,6 +60,7 @@ $accordion-item-height: 600px;
 	}
 
 	h2 {
+		@include font-size(28px);
 		position: relative;
 		text-overflow: clip;
 		transition-delay: .05s;
@@ -76,6 +77,7 @@ $accordion-item-height: 600px;
 	}
 
 	p {
+		@include font-size(18px);
 		overflow: hidden;
 		text-overflow: ellipsis;
 		transition-delay: .2s;
