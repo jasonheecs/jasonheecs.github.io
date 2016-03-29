@@ -326,7 +326,7 @@
           if (diffState) {
             page.clear(page.href);
           }
-          page.load(url, false);
+          page.load(url, false, true, true);
         }
       }
     },
@@ -489,8 +489,9 @@
          * @param   {bool}      cacheResponse - used to determine if
          *                      we should allow the cache to forget this
          *                      page after thid load completes.
+         * @param   {bool}      isPopState - used to determine if page should scroll back to top
          */
-        load = function (request, push, cacheResponse) {
+        load = function (request, push, cacheResponse, isPopState) {
 
           var settings = utility.translate(request);
 
@@ -500,6 +501,9 @@
           }
           if (typeof cacheResponse === 'undefined') {
             cacheResponse = true;
+          }
+          if (typeof isPopState === 'undefined') {
+            isPopState = false;
           }
 
           var
@@ -594,7 +598,7 @@
           options.onStart.render($container);
 
           window.setTimeout(function(){
-            if (options.scroll) {
+            if (options.scroll && !isPopState) {
               $body.scrollTop(0);
             }
             $container.trigger('ss.onStartEnd');

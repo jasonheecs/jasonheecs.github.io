@@ -16,3 +16,23 @@
 	margin-bottom: 8em;
 	text-align: center;
 }
+
+.post-nav {
+	@extend %flex;
+	@extend %flex-space-between;
+	margin-bottom: 50px;
+
+	a {
+		text-decoration: none;
+	}
+}
+
+.post-nav__title {
+	letter-spacing: .05em;
+	margin: 0;
+}
+
+.post-nav__subtitle {
+	@include font-size(15px);
+	word-spacing: -.25em;
+}

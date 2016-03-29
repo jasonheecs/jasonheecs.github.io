@@ -11,29 +11,39 @@ layout: default
 	<div class="screens">
 		<figure>
 			<div class="drawing drawing--desktop wow fadeInUp" data-wow-duration="2s">
-				<img src="{{ page.images.baseUrl }}{{ page.images.desktop.filename }}" alt="{{ page.title }}" title="{{ page.title }}" class="drawing__img drawing__img--hidden">
+				<img src="{{ page.images.baseUrl }}{{ page.images.desktop.filename }}" alt="{{ page.title }}" class="drawing__img drawing__img--hidden">
 				{% include drawing-desktop.svg %}
 			</div>
 		</figure>
 		<figure>
 			<div class="drawing wow fadeInUp" data-wow-duration="2s">
-				<img src="{{ page.images.baseUrl }}{{ page.images.tablet.filename }}" alt="{{ page.title }}" title="{{ page.title }}" class="drawing__img drawing__img--hidden">
+				<img src="{{ page.images.baseUrl }}{{ page.images.tablet.filename }}" alt="{{ page.title }}" class="drawing__img drawing__img--hidden">
 				{% include drawing-tablet.svg %}
 			</div>
 		</figure>
 		<figure>
 			<div class="drawing wow fadeInUp" data-wow-duration="2s">
-				<img src="{{ page.images.baseUrl }}{{ page.images.mobile.filename }}" alt="{{ page.title }}" title="{{ page.title }}" class="drawing__img drawing__img--hidden">
+				<img src="{{ page.images.baseUrl }}{{ page.images.mobile.filename }}" alt="{{ page.title }}" class="drawing__img drawing__img--hidden">
 				{% include drawing-mobile.svg %}
 			</div>
 		</figure>
 	</div>
 </article>
-<div class="post-nav">
-	{% if page.previous.url %}
-		<a class="post-nav__link post-nav__link--prev" href="{{ page.previous.url }}">Previous Work</a>
-	{% endif %}
+<div class="post-nav container">
+	<a class="post-nav__link post-nav__link--back" href="/#works">
+		<span class="post-nav__subtitle">Back to</span>
+		<h2 class="post-nav__title">Works</h2>
+	</a>
+
 	{% if page.next.url %}
-		<a class="post-nav__link post-nav__link--next" href="{{ page.next.url }}">Next Work</a>
+		<a class="post-nav__link post-nav__link--next" href="{{ page.next.url }}" title="View next work">
+			<span class="post-nav__subtitle">Next Work</span>
+			<h2 class="post-nav__title">{{ page.next.title }}</h2>
+		</a>
+	{% elsif page.previous.url %}
+		<a class="post-nav__link post-nav__link--next" href="{{ page.previous.url }}" title="View next work">
+			<span class="post-nav__subtitle">Next Work</span>
+			<h2 class="post-nav__title">{{ page.previous.title }}</h2>
+		</a>
 	{% endif %}
 </div>

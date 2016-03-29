@@ -3,6 +3,7 @@
 var $ = require('jquery');
 var smoothState = require('smoothstate');
 var nav = require('./nav');
+var shapeShifter = require('./shape-shifter');
 
 // var scrollToWorks = false;
 
@@ -38,6 +39,7 @@ function init(callback) {
       }
     },
     onAfter: function($container, $newContent) {
+    	shapeShifter.reset();
     	callback.call();
 
     	// console.log(window.location.hash);

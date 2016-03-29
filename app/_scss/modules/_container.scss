@@ -1,8 +1,12 @@
 .container {
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 960px;
+	max-width: 750px;
 	padding: 0 15px;
+
+	@media screen and (min-width: $mq-large) {
+		max-width: 930px;
+	}
 
 	@media screen and (min-width: $mq-xlarge) {
 		max-width: 1200px;

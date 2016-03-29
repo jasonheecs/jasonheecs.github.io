@@ -2,11 +2,15 @@
 	@include font-size(20px);
 	background: $color-secondary;
 	color: $color-primary;
-	padding: 80px 50px 40px;
+	padding: 100px 60px;
 }
 
 .footer__title {
-	@include font-size(40px);
+	@include font-size(34px);
+
+	@media screen and (min-width: $mq-medium) {
+		@include font-size(40px);
+	}
 }
 
 .footer__links {

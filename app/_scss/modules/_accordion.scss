@@ -31,8 +31,12 @@ $accordion-item-height: 800px;
 	position: absolute;
 
 	img {
-		filter: grayscale(100%);
+		filter: grayscale(50%);
 		transition: filter .5s linear;
+
+		@media screen and (min-width: $mq-large) {
+			filter: grayscale(100%);
+		}
 	}
 }
 

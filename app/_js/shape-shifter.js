@@ -32,6 +32,8 @@ var Drawing = (function() {
 						function(callback) {
 							window.setTimeout(callback, 1000 / 60);
 						};
+	var requestId;
+
 	return {
 		init: function (el) {
 			canvas = document.querySelector(el);
@@ -47,7 +49,7 @@ var Drawing = (function() {
 			renderFn = !renderFn ? fn : renderFn;
 			this.clearFrame();
 			renderFn();
-			requestFrame.call(window, this.loop.bind(this));
+			requestId = requestFrame.call(window, this.loop.bind(this));
 		},
 
 		adjustCanvas: function() {
@@ -72,6 +74,14 @@ var Drawing = (function() {
 			context.arc(point.x, point.y, point.z, 0, 2 * Math.PI, true);
 			context.closePath();
 			context.fill();
+		},
+
+		destroy: function() {
+			this.clearFrame();
+			if (requestId) {
+				window.cancelAnimationFrame(requestId);
+				requestId = undefined;
+			}
 		}
 	};
 })();
@@ -494,7 +504,8 @@ var Sequencer = (function() {
 			}), 500);
 		},
 		performAction: performAction,
-		loopAction: loopAction
+		loopAction: loopAction,
+		reset: reset
 	};
 })();
 
@@ -509,5 +520,9 @@ module.exports = {
 		Drawing.loop(function() {
 			Shape.render();
 		});
+	},
+	reset: function() {
+		Sequencer.reset();
+		Drawing.destroy();
 	}
 };
