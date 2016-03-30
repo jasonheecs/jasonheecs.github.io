@@ -15,9 +15,7 @@ function init(callback) {
     blacklist: '.no-smoothState, #footer a',
     scroll: true,
     onBefore: function($currentTarget) {
-    	// if($currentTarget[0].id === 'nav-works') {
-    	// 	scrollToWorks = true;
-    	// }
+    	nav.reset();
     },
     onStart: {
       duration: 250, // Duration of our animation
