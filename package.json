@@ -47,9 +47,8 @@
   },
   "browserify-shim": {
     "jquery": "global:jQuery",
-    "waypoints": "global:Waypoint",
-    "vivus": "global:Vivus",
-    "wow": "global:WOW"
+    "waypoint": "global:Waypoint",
+    "vivus": "global:Vivus"
   },
   "browser": {
     "smoothstate": "./app/_js/lib/jquery.smoothState.js"

@@ -3,6 +3,10 @@
 	background: $color-secondary;
 	color: $color-primary;
 	padding: 100px 60px;
+
+	a {
+		color: lighten($color-primary, 4%);
+	}
 }
 
 .footer__title {

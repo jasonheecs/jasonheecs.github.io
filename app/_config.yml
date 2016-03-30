@@ -7,15 +7,13 @@
 
 # Site settings
 title: Jason Hee
-email: your-email@domain.com
+email: jasonheecs@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Personal site of Jason Hee, a Singaporean Web developer.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "http://jasonhee.com" # the base hostname & protocol for your site
+github_username:  jasonheecs
+codepen_username:  jasonheecs
 
 # Build settings
 markdown: kramdown
@@ -30,3 +28,6 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+
+gems:
+- jekyll-email-protect

@@ -4,6 +4,7 @@ var $ = require('jquery');
 var smoothState = require('smoothstate');
 var nav = require('./nav');
 var shapeShifter = require('./shape-shifter');
+var viewportAnimator = require('./viewport-animator');
 
 // var scrollToWorks = false;
 
@@ -11,7 +12,7 @@ function init(callback) {
   var options = {
     prefetch: true,
     cacheLength: 2,
-    blacklist: '.no-smoothState',
+    blacklist: '.no-smoothState, #footer a',
     scroll: true,
     onBefore: function($currentTarget) {
     	// if($currentTarget[0].id === 'nav-works') {
@@ -39,7 +40,11 @@ function init(callback) {
       }
     },
     onAfter: function($container, $newContent) {
-    	shapeShifter.reset();
+      if (document.querySelector('.canvas')) {
+        shapeShifter.reset();
+      }
+      viewportAnimator.destroy();
+      
     	callback.call();
 
     	// console.log(window.location.hash);
