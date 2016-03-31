@@ -48,5 +48,6 @@
 
 .footer__email {
 	@extend %link-curtain--secondary;
+	vertical-align: middle;
 	z-index: 1;
 }
