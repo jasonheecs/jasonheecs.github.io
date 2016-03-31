@@ -31,19 +31,36 @@ layout: default
 </article>
 <div class="post-nav container">
 	<a class="post-nav__link post-nav__link--back" href="/#works">
-		<span class="post-nav__subtitle">Back to</span>
-		<h2 class="post-nav__title">Works</h2>
+		<div class="post-nav__arrow post-nav__arrow--left">
+			{% include arrow-left.svg %}
+		</div>
+		<div class="post-nav__titles">
+			<span class="post-nav__subtitle">Back to</span>
+			<h2 class="post-nav__title">Works</h2>
+		</div>
 	</a>
 
-	{% if page.next.url %}
-		<a class="post-nav__link post-nav__link--next" href="{{ page.next.url }}" title="View next work">
-			<span class="post-nav__subtitle">Next Work</span>
-			<h2 class="post-nav__title">{{ page.next.title }}</h2>
-		</a>
-	{% elsif page.previous.url %}
+	{% if page.previous.url %}
 		<a class="post-nav__link post-nav__link--next" href="{{ page.previous.url }}" title="View next work">
-			<span class="post-nav__subtitle">Next Work</span>
-			<h2 class="post-nav__title">{{ page.previous.title }}</h2>
+			<div class="post-nav__titles">
+				<span class="post-nav__subtitle">Next Work</span>
+				<h2 class="post-nav__title">{{ page.previous.title }}</h2>
+			</div>
+			<div class="post-nav__arrow post-nav__arrow--right">
+				{% include arrow-right.svg %}
+			</div>
 		</a>
+	{% else %}
+		{% for post in site.categories['Portfolio'] limit:1 %}
+	    <a class="post-nav__link post-nav__link--next" href="{{ post.url }}" title="View next work">
+			<div class="post-nav__titles">
+				<span class="post-nav__subtitle">Next Work</span>
+				<h2 class="post-nav__title">{{ post.title }}</h2>
+			</div>
+			<div class="post-nav__arrow post-nav__arrow--right">
+				{% include arrow-right.svg %}
+			</div>
+		</a>
+		{% endfor %}
 	{% endif %}
 </div>

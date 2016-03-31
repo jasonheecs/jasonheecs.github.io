@@ -7,7 +7,7 @@ var smoothState = require('./smoothState');
 var $nav; //nav jQuery element
 var offset; //offset to use for jquery scrollTo plugin
 var scrollDuration = 800; //how long it takes to animate the scrollTo plugin
-var navItemActiveCls = 'nav__item--active'; //active class for nav menu items
+var navItemActiveCls = 'nav__link--active'; //active class for nav menu items
 var waypoints = []; //list of Waypoints
 var activeLinkEl; //current active link element
 var isHomePage; //is current page the home page

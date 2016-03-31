@@ -43,7 +43,7 @@ function init(callback) {
       }
       viewportAnimator.destroy();
       
-    	callback.call();
+      callback.call();
     }
   };
   var smoothState = $('#wrapper').smoothState(options).data('smoothState');

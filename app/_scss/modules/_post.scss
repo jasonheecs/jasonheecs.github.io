@@ -1,3 +1,5 @@
+$post-nav-arrow-width: 2em;
+
 .post {
 	padding-top: 50px;
 }
@@ -10,6 +12,10 @@
 
 .post-link {
 	margin: 0 0 3em;
+
+	a {
+		@extend %link-curtain--primary;
+	}
 }
 
 .post-content {
@@ -27,6 +33,20 @@
 	}
 }
 
+.post-nav__titles {
+	//scss-lint:disable ColorVariable
+	// background-color has to be hardcoded here because of body bg gradient
+	background: #f9f9f9;
+}
+
+.post-nav__link--next .post-nav__titles {
+	padding-right: 5px;
+}
+
+.post-nav__link--back .post-nav__titles {
+	padding-left: 5px;
+}
+
 .post-nav__title {
 	letter-spacing: .05em;
 	margin: 0;
@@ -35,4 +55,56 @@
 .post-nav__subtitle {
 	@include font-size(15px);
 	word-spacing: -.25em;
+}
+
+.post-nav__link {
+	@extend %flex;
+	position: relative;
+	transition: transform .3s;
+}
+
+.post-nav__arrow {
+	@extend %flex;
+	@extend %flex-center;
+	@extend %flex-middle;
+	background: $color-secondary;
+	content: '';
+	height: 100%;
+	position: absolute;
+	transition: transform .35s;
+	width: $post-nav-arrow-width;
+	z-index: -1;
+}
+
+.post-nav__arrow--right {
+	transform: translate3d(-$post-nav-arrow-width, 0, 0);
+}
+
+.post-nav__arrow--left {
+	transform: translate3d(0, 0, 0);
+}
+
+//hover
+//scss-lint:disable MergeableSelector
+.post-nav__link--next {
+	&:hover,
+	&:focus {
+		transform: translate3d(-$post-nav-arrow-width, 0, 0);
+
+		.post-nav__arrow {
+			transform: translate3d(0, 0, 0);
+		}
+	}
+}
+
+//scss-lint:disable MergeableSelector
+.post-nav__link--back {
+	&:hover,
+	&:focus {
+		transform: translate3d($post-nav-arrow-width, 0, 0);
+
+		.post-nav__arrow {
+			transform: translate3d(-$post-nav-arrow-width, 0, 0);
+		}
+	}
 }

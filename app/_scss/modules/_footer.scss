@@ -24,4 +24,29 @@
 	li {
 		display: inline-block;
 	}
+
+	svg {
+		border-radius: 50%;
+	}
+}
+
+//hover
+//scss-lint:disable MergeableSelector
+.footer__links {
+	a:hover,
+	a:focus {
+		svg {
+			background: $color-primary;
+		}
+
+		svg path,
+		svg polygon {
+			fill: $color-secondary;
+		}
+	}
+}
+
+.footer__email {
+	@extend %link-curtain--secondary;
+	z-index: 1;
 }
