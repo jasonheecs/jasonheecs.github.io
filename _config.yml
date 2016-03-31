@@ -28,6 +28,3 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-
-gems:
-- jekyll-email-protect
