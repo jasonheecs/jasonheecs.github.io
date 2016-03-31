@@ -9,7 +9,8 @@ gulp.task('build', function(callback) {
   'jekyll',
   [
     'sass',
-    'scripts'
+    'scripts',
+    'images'
   ],
   'base64',
   callback);

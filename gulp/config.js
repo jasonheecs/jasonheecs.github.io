@@ -1,4 +1,4 @@
-var src               = 'app';
+var src               = './';
 var build             = 'build';
 var development       = 'build/development';
 var production        = 'build/production';
@@ -69,7 +69,7 @@ module.exports = {
     }]
   },
   images: {
-    src:  src + '/images/**/*',
+    src:  src + '/_images/**/*',
     dest: development + '/images'
   },
   base64: {
@@ -85,17 +85,16 @@ module.exports = {
   watch: {
     jekyll: [
       src + '/_config.yml',
-      src + '/_config.build.yml',
       src + '/_data/**/*.{json,yml,csv}',
       src + '/_includes/**/*.{html,xml}',
       src + '/_layouts/*.html',
       src + '/_plugins/*.rb',
-      src + '/_posts/*.{markdown,md}',
-      src + '/**/*.{html,markdown,md,yml,json,txt,xml}',
+      src + '/_posts/*.{markdown,md,html}',
+      src + '/*.{html,markdown,md,yml,json,txt,xml}',
     ],
     sass: src + '/_scss/**/*.{sass,scss}',
     scripts: src + '/_js/**/*.js',
-    images: src + '/images/**/*'
+    images: src + '/_images/**/*'
   },
   scsslint: {
     src: [

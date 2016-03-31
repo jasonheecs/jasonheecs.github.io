@@ -52,6 +52,6 @@
     "vivus": "global:Vivus"
   },
   "browser": {
-    "smoothstate": "./app/_js/lib/jquery.smoothState.js"
+    "smoothstate": "./_js/lib/jquery.smoothState.js"
   }
 }
