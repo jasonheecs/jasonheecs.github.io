@@ -1,0 +1,10 @@
+<footer id="footer" class="footer">
+  <h2 class="footer__title">Thanks for stopping by.</h2>
+  <p>Here are a couple of other places where I hang out:</p>
+  <ul class="footer__links">
+    <li><a href="https://github.com/{{ site.github_username }}" target="_blank" title="Github">{% include github.svg %}</a></li>
+    <li><a href="https://codepen.io/{{ site.codepen_username }}" target="_blank" title="Codepen">{% include codepen.svg %}</a></li>
+  </ul>
+  {% assign email = site.email | split: '@' %}
+  <p>You can email me at <a href="mailto:{{ site.email | encode_email }}" class="footer__email">{{ email[0] }}<span style="display:none">nospam</span>@<span style="display:none">please</span>{{ email[1] }}</a></p>
+</footer>

@@ -19,7 +19,6 @@ codepen_username:  jasonheecs
 markdown: kramdown
 exclude: ["node_modules", "gulpfile.js", "package.json", "_scss", "app", "gulp", "_js"]
 permalink: /:title/
-source: app
 
 # defaults
 defaults:
