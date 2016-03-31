@@ -17,8 +17,9 @@ codepen_username:  jasonheecs
 
 # Build settings
 markdown: kramdown
-exclude: ["node_modules", "gulpfile.js", "package.json", "_scss", "css", "_js"]
+exclude: ["node_modules", "gulpfile.js", "package.json", "_scss", "app", "gulp", "_js", "src"]
 permalink: /:title/
+source: app
 
 # defaults
 defaults:
@@ -28,6 +29,3 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-
-gems:
-- jekyll-email-protect
