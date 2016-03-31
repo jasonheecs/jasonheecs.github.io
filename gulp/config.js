@@ -168,5 +168,28 @@ module.exports = {
       '!' + production + '/feed.xml'
     ],
     dest: production
+  },
+  github: {
+    files: [
+      {
+        src: [
+          productionAssets + '/css/**/*',
+          productionAssets + '/js/**/*',
+        ],
+        dest: './',
+        options: {
+          base: productionAssets
+        }
+      },
+      {
+        src: [
+          production + '/images/**/*'
+        ],
+        dest: './',
+        options: {
+          base: production
+        }
+      }
+    ]
   }
 };
