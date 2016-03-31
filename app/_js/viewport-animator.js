@@ -3,8 +3,8 @@
 var Waypoint = require('waypoint');
 var SVGAnimator = require('./svg-animator');
 
-var animationInitCls = 'animation--hidden';
-var waypoints = [];
+var animationInitCls = 'animation--hidden'; //initial class to add to elements to be animated
+var waypoints = []; //list of Waypoints
 
 /**
  * Set animation offset for svg elements on posts page

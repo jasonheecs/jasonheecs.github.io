@@ -6,7 +6,7 @@ var nav = require('./nav');
 var shapeShifter = require('./shape-shifter');
 var viewportAnimator = require('./viewport-animator');
 
-// var scrollToWorks = false;
+var exitingClass = 'exiting';
 
 function init(callback) {
   var options = {
@@ -15,13 +15,13 @@ function init(callback) {
     blacklist: '.no-smoothState, #footer a',
     scroll: true,
     onBefore: function($currentTarget) {
-    	nav.reset();
+      nav.reset(true);
     },
     onStart: {
       duration: 250, // Duration of our animation
       render: function ($container) {
         // Add your CSS animation reversing class
-        $container.addClass('exiting');
+        $container.addClass(exitingClass);
 
         // Restart your animation
         smoothState.restartCSSAnimations();
@@ -31,7 +31,7 @@ function init(callback) {
       duration: 0,
       render: function ($container, $newContent) {
         // Remove your CSS animation reversing class
-        $container.removeClass('exiting');
+        $container.removeClass(exitingClass);
 
         // Inject the new content
         $container.html($newContent);
@@ -44,18 +44,14 @@ function init(callback) {
       viewportAnimator.destroy();
       
     	callback.call();
-
-    	// console.log(window.location.hash);
-
-    	// if (window.location.hash === '#works') {
-    	// 	nav.scrollTo($('#works'));
-    	// 	// scrollToWorks = false;
-    	// }
     }
   };
   var smoothState = $('#wrapper').smoothState(options).data('smoothState');
 }
 
 module.exports = {
-	init: init
+	init: init,
+  getExitingClass: function() {
+    return exitingClass;
+  }
 };

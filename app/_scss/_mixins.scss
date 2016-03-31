@@ -37,3 +37,40 @@
 	  color: $color;
 	}
 }
+
+// Modified version of the text-shadow mixin from Compass
+@mixin text-shadow($shadow-1 : default) {
+  @if $shadow-1 == default {
+    $shadow-1: $default-text-shadow-h-offset $default-text-shadow-v-offset $default-text-shadow-blur $default-text-shadow-spread $default-text-shadow-color;
+  }
+  $shadows-without-spread: join((), (), comma);
+  $shadows: join((), (), comma);
+  $has-spread: false;
+
+  $shadows-without-spread: append($shadows-without-spread, $shadow-1);
+  $shadows: append($shadows, $shadow-1);
+
+  @if $has-spread {
+    text-shadow: $shadows-without-spread;
+  }
+  text-shadow: $shadows;
+}
+
+// function to generate a gradient text shadow
+@function shadow($s-color, $s-start, $s-width) {
+  $output: '';
+  $a: $s-start;
+  $x: $a;
+  $y: $a;
+  $i: .0025em;
+  $s-size: $s-width + $s-start;
+  @while  $x < ($s-size + $i) {
+    $output: $output + '#{$x} #{$y} 0 #{$s-color}';
+    @if ($s-size + 0) >= $x {
+      $output: $output + ', ';
+    }
+    $y: $y + $i;
+    $x: $x + $i;
+  }
+  @return unquote($output);
+}
