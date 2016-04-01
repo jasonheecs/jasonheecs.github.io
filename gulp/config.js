@@ -188,6 +188,15 @@ module.exports = {
         options: {
           base: production
         }
+      },
+      {
+        src: [
+          development + '/images/favicon/*.{xml,ico,json,svg}'
+        ],
+        dest: './',
+        options: {
+          base: development
+        }
       }
     ]
   }
