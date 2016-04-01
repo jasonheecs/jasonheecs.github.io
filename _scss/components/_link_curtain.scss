@@ -19,11 +19,13 @@
 
 	&::before {
 		background: transparent;
+		transform: translate3d(0, 100%, 0) translate3d(0, -3px, 0);
 		transform: translate3d(0, calc(100% - 3px), 0);
 		transition-delay: .3s;
 	}
 
 	&::after {
+		transform: translate3d(0, -100%, 0) translate3d(0, -3px, 0);
 		transform: translate3d(0, calc(-100% - 3px), 0);
 		z-index: -1;
 	}

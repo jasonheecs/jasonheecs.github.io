@@ -7,7 +7,7 @@ var Smoothstate = require('./smoothstate');
 var FooterEmail = require('./footer-email');
 
 function init() {
-	if (document.querySelector('.canvas')) {
+	if (window.innerWidth >= 960 && document.querySelector('.canvas')) {
 		ShapeShifter.init();
 	}
 

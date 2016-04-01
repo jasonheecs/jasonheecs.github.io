@@ -2,6 +2,7 @@
 	@extend %flex;
 	@extend %flex-center;
 	@extend %flex-middle;
+	height: 100px;
 	min-height: 100vh;
 }
 
@@ -9,12 +10,15 @@
 	@extend %flex;
 	@extend %flex-middle;
 	background: rgba(lighten($color-primary, 4%), .35);
-	line-height: .8;
-	margin-top: -180px;
+	line-height: .8;	
 	text-transform: uppercase;
 
 	h1 {
 		@include font-size(80px);
+	}
+
+	@media screen and (min-width: $mq-large) {
+		margin-top: -180px;
 	}
 }
 

@@ -10,7 +10,7 @@ var waypoints = []; //list of Waypoints
  * Set animation offset for svg elements on posts page
  */
 function setOffset(el) {
-	el.setAttribute('data-vp-offset', el.clientHeight / 2);
+	el.setAttribute('data-vp-offset', el.clientHeight / 3);
 }
 
 /**
