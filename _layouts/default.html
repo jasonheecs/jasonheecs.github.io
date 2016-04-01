@@ -15,6 +15,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.0/jquery.scrollTo.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/noframework.waypoints.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/vivus/0.3.0/vivus.min.js"></script>
-    <script src="{{ "/js/app.js" | prepend: site.baseurl }}"></script>
+    <script src="{% if site.version %}{{ "/js/app.js?v=" | prepend: site.baseurl | append: site.version }}{% else %}{{ "/js/app.js" | prepend: site.baseurl }}{% endif %}"></script>
   </body>
 </html>

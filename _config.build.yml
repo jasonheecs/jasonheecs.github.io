@@ -14,12 +14,13 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://jasonhee.com" # the base hostname & protocol for your site
 github_username:  jasonheecs
 codepen_username:  jasonheecs
+version: 0.9
 
 # Build settings
 markdown: kramdown
 exclude: ["node_modules", "gulpfile.js", "package.json", "_scss", "app", "gulp", "_js", "src"]
+include: ['.htaccess']
 permalink: /:title/
-source: app
 
 # defaults
 defaults:
@@ -29,3 +30,6 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+
+gems:
+  - jekyll-sitemap

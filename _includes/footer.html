@@ -6,5 +6,5 @@
     <li><a href="https://codepen.io/{{ site.codepen_username }}" target="_blank" title="Codepen">{% include codepen.svg %}</a></li>
   </ul>
   {% assign email = site.email | split: '@' %}
-  <p>You can email me at <a href="mailto:{{ site.email | encode_email }}" class="footer__email">{{ email[0] }}<span style="display:none">nospam</span>@<span style="display:none">please</span>{{ email[1] }}</a></p>
+  <p>You can email me at <a id="contact-email" class="footer__email">{{ email[0] }}<span style="display:none">nospam</span>@<span style="display:none">please</span>{{ email[1] }}</a></p>
 </footer>

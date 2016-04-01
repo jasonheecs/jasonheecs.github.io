@@ -40,7 +40,7 @@
 	position: relative;
 
 	&::after {
-		background: rgba($color-secondary, .1);
+		background: rgba($color-secondary, .5);
 		content: '';
 		height: 2px;
 		left: 0;
