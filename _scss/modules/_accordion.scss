@@ -2,13 +2,15 @@ $accordion-no-of-items: 5;
 $accordion-item-height: 800px;
 
 .accordion {
+	background: lighten($color-secondary, 15%);
 	margin-top: 20px;
 	overflow: hidden;
 }
 
 .accordion__list {
 	display: table;
-	margin: 0;
+	margin: 0 auto;
+	overflow: hidden;
 	padding: 0;
 	table-layout: fixed;
 	width: 100%;
@@ -22,8 +24,9 @@ $accordion-item-height: 800px;
 
 	@media screen and (min-width: $mq-large) {
 		display: table-cell;
-		transition: all .5s;
+		transition: width .5s ease;
 		width: 100% / $accordion-no-of-items;
+		will-change: width;
 	}
 }
 
@@ -109,6 +112,14 @@ $accordion-item-height: 800px;
 
 			.accordion__img-wrapper img {
 				filter: grayscale(0%);
+			}
+
+			@media screen and (min-width: 1720px) {
+				width: 40%;
+			}
+
+			@media screen and (min-width: 2000px) {
+				width: 25%;
 			}
 		}
 	}

@@ -2,27 +2,27 @@
 layout: default
 ---
 <article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
-	<h1 class="post-title" data-vp-animation="fadeInUp" itemprop="name headline">{{ page.title }}</h1>
-	<p class="post-link" data-vp-animation="fadeInUp" data-vp-delay=".15s"><a href="{{ page.link }}" target="_blank">{{ page.link }}</a></p>
-	<div class="post-content" data-vp-animation="fadeInUp" itemprop="articleBody" data-vp-delay=".3s">
+	<h1 class="post-title animation--hidden" data-vp-animation="fadeInUp" itemprop="name headline">{{ page.title }}</h1>
+	<p class="post-link animation--hidden" data-vp-animation="fadeInUp" data-vp-delay=".15s"><a href="{{ page.link }}" target="_blank">{{ page.link }}</a></p>
+	<div class="post-content animation--hidden" data-vp-animation="fadeInUp" itemprop="articleBody" data-vp-delay=".3s">
 		{{ content }}
 	</div>
 	
 	<div class="screens">
 		<figure>
-			<div class="drawing drawing--desktop" data-vp-animation="fadeInUp" data-vp-duration="2s">
+			<div class="drawing drawing--desktop animation--hidden" data-vp-animation="fadeInUp" data-vp-duration="2s">
 				<img src="{{ page.images.baseUrl }}{{ page.images.desktop.filename }}" alt="{{ page.title }}" class="drawing__img drawing__img--hidden">
 				{% include drawing-desktop.svg %}
 			</div>
 		</figure>
 		<figure>
-			<div class="drawing" data-vp-animation="fadeInUp" data-vp-duration="2s">
+			<div class="drawing animation--hidden" data-vp-animation="fadeInUp" data-vp-duration="2s">
 				<img src="{{ page.images.baseUrl }}{{ page.images.tablet.filename }}" alt="{{ page.title }}" class="drawing__img drawing__img--hidden">
 				{% include drawing-tablet.svg %}
 			</div>
 		</figure>
 		<figure>
-			<div class="drawing" data-vp-animation="fadeInUp" data-vp-duration="2s">
+			<div class="drawing animation--hidden" data-vp-animation="fadeInUp" data-vp-duration="2s">
 				<img src="{{ page.images.baseUrl }}{{ page.images.mobile.filename }}" alt="{{ page.title }}" class="drawing__img drawing__img--hidden">
 				{% include drawing-mobile.svg %}
 			</div>

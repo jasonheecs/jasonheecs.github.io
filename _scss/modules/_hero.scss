@@ -10,7 +10,7 @@
 	@extend %flex;
 	@extend %flex-middle;
 	background: rgba(lighten($color-primary, 4%), .35);
-	line-height: .8;	
+	line-height: .8;
 	text-transform: uppercase;
 
 	h1 {

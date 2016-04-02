@@ -1,5 +1,6 @@
 'use strict';
 
+require('modernizr');
 var ShapeShifter = require('./shape-shifter');
 var ViewportAnimator = require('./viewport-animator');
 var Nav = require('./nav');
@@ -7,7 +8,7 @@ var Smoothstate = require('./smoothstate');
 var FooterEmail = require('./footer-email');
 
 function init() {
-	if (window.innerWidth >= 960 && document.querySelector('.canvas')) {
+	if ((window.innerWidth >= 960 && !Modernizr.touchevents) && document.querySelector('.canvas')) {
 		ShapeShifter.init();
 	}
 

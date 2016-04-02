@@ -3,6 +3,8 @@
  */
 'use strict';
 
+var initialized = false;
+
 function debounce(fn, delay) {
 	var timer = null;
 	return function() {
@@ -517,6 +519,8 @@ module.exports = {
 		Sequencer.init();
 		Sequencer.loopAction('WEB DEVELOPER|SINGAPOREAN|VIDEO GAMER|BOOKWORM|HISTORY GEEK');
 
+		initialized = true;		
+
 		Drawing.loop(function() {
 			Shape.render();
 		});
@@ -524,5 +528,8 @@ module.exports = {
 	reset: function() {
 		Sequencer.reset();
 		Drawing.destroy();
+	},
+	hasInitialized: function() {
+		return initialized;
 	}
 };

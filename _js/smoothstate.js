@@ -38,7 +38,7 @@ function init(callback) {
       }
     },
     onAfter: function($container, $newContent) {
-      if (document.querySelector('.canvas')) {
+      if (shapeShifter.hasInitialized()) {
         shapeShifter.reset();
       }
       viewportAnimator.destroy();

@@ -19,13 +19,13 @@ html {
 }
 
 body {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 	background: $color-primary;
 	//scss-lint:disable DuplicateProperty, ColorVariable
 	background: linear-gradient(to bottom, #fff 0%, #f5f5f5 120%);
 	color: $color-secondary;
 	font-family: $font-primary;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
 }
 
 a {

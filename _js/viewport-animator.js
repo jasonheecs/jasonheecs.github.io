@@ -10,7 +10,11 @@ var waypoints = []; //list of Waypoints
  * Set animation offset for svg elements on posts page
  */
 function setOffset(el) {
-	el.setAttribute('data-vp-offset', el.clientHeight / 3);
+	if (window.innerWidth <= 1024) {
+		el.setAttribute('data-vp-offset', el.clientHeight * 2);
+	} else {
+		el.setAttribute('data-vp-offset', (el.clientHeight / 3) * 2);
+	}
 }
 
 /**
@@ -66,7 +70,6 @@ function init() {
 	}
 
 	Array.prototype.forEach.call(document.querySelectorAll('[data-vp-animation]'), function(el){
-		el.style.visibility='hidden';
 		var elClassList = el.classList;
 		elClassList.add(animationInitCls);
 

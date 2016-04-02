@@ -19,8 +19,12 @@ $post-nav-arrow-width: 2em;
 }
 
 .post-content {
-	margin-bottom: 8em;
+	margin-bottom: 4em;
 	text-align: center;
+
+	@media screen and (min-width: $mq-medium) {
+		margin-bottom: 8em;
+	}
 }
 
 .post-nav {
@@ -69,7 +73,7 @@ $post-nav-arrow-width: 2em;
 	@extend %flex-middle;
 	background: $color-secondary;
 	content: '';
-	height: 100%;
+	height: 97%;
 	position: absolute;
 	transition: transform .35s;
 	width: $post-nav-arrow-width;
@@ -77,11 +81,11 @@ $post-nav-arrow-width: 2em;
 }
 
 .post-nav__arrow--right {
-	transform: translate3d(-$post-nav-arrow-width - 0.1, 0, 0);
+	transform: translate3d(-$post-nav-arrow-width - .1, .05em, 0);
 }
 
 .post-nav__arrow--left {
-	transform: translate3d(0.1em, 0, 0);
+	transform: translate3d(.1em, .05em, 0);
 }
 
 //hover
