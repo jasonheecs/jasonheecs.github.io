@@ -111,13 +111,14 @@ var Dot = function(x, y) {
 		x: x,
 		y: y,
 		z: 5,
-		a: 1,
+		a: 0,
 		h: 0
 	});
 
 	//TODO
 	this.e = 0.07;
 	this.s = true;
+	this.bg = false;
 
 	var rgbNum = Math.floor(Math.random() * (100 - 0)) + 0; //generate a random rgba value between 0 and 99
 
@@ -346,16 +347,36 @@ var Shape = (function() {
 			compensate();
 
 			if (shapeBuilder.dots.length > dots.length) {
-				size = (shapeBuilder.dots.length - dots.length) + 500;
+				size = (shapeBuilder.dots.length - dots.length);
+
 				for (d = 1; d <= size; d++) {
-					dots.push(new Dot(area.width / 2, area.height / 2));
+					dots.push(new Dot(area.width / 2, (area.height / 3) * 2));
+				}
+
+				for (var e = 1; e <= 500; e++) {
+					var randomX = Math.random() * area.width;
+					var randomY = Math.random() * area.height;
+					var tmpPoint = new Point({
+						x: randomX,
+						y: randomY,
+						a: 0.2,
+						z: Math.random() * 4,
+						h: 0
+					});
+					var tmpDot = new Dot(randomX, randomY);
+					tmpDot.Point = tmpPoint;
+					tmpDot.e = 0.04;
+					tmpDot.bg = true;
+
+					dots.push(tmpDot);
 				}
 			}
 
 			d = 0;
 
 			while(shapeBuilder.dots.length > 0) {
-				i = Math.floor(Math.random() * shapeBuilder.dots.length);
+				i = Math.floor(Math.random() * shapeBuilder.dots.length);			
+
 				dots[d].e = fast ? 0.25 : (dots[d].s ? 0.14: 0.11);
 
 				if (dots[d].s) {
@@ -371,7 +392,7 @@ var Shape = (function() {
 					}));
 				}
 
-				dots[d].s = true;
+				dots[d].s = true;;
 				dots[d].move(new Point({
 					x: shapeBuilder.dots[i].x + cx,
 					y: shapeBuilder.dots[i].y + cy,
@@ -387,21 +408,36 @@ var Shape = (function() {
 
 			for (i = d; i < dots.length; i++) {
 				if (dots[i].s) {
-					dots[i].move(new Point({
-						z: Math.random() * 20 + 10,
-						a: Math.random(),
-						h: 20
-					}));
+					if (!dots[i].bg) {
+						// if not background dot and is part of dot that is shuffled out, temporarily increase the dot size
+						dots[i].move(new Point({
+							z: Math.random() * 20 + 10,
+							a: Math.random(),
+							h: 20
+						}));						
+					}
 
 					dots[i].s = false;
 					dots[i].e = 0.04;
-					dots[i].move(new Point({
-						x: Math.random() * area.width,
-						y: Math.random() * area.height,
-						a: 0.3,
-						z: Math.random() * 4,
-						h: 0
-					}));
+					
+					
+					if (dots[i].bg) {
+						dots[i].move(new Point({
+							x: dots[i].Point.x,
+							y: dots[i].Point.y,
+							a: 0.3,
+							z: Math.random() * 4,
+							h: 0
+						}));
+					} else {
+						dots[i].move(new Point({
+							x: Math.random() * area.width,
+							y: Math.random() * area.height,
+							a: 0.3,
+							z: Math.random() * 4,
+							h: 0
+						}));
+					}
 				}
 			}
 		},
