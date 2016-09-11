@@ -42,7 +42,8 @@ defaults:
     values:
       categories: "Portfolio"
       layout: "portfolio"
-      img_base_url: "/images/works/"
+      images: 
+        base_url: "/images/works/"
 
 gems:
   - jekyll-sitemap

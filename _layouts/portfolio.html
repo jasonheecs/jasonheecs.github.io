@@ -12,21 +12,21 @@ layout: default
 	<div class="screens">
 		<figure>
 			<div class="drawing drawing--desktop animation--hidden" data-vp-animation="fadeInUp" data-vp-duration="2s">
-				{% capture desktop_img %}{{ page.img_base_url }}{{ page.images.folder_name }}/{{ page.images.desktop }}{% endcapture %}
+				{% capture desktop_img %}{{ page.images.base_url }}{{ page.images.folder_name }}/{{ page.images.desktop }}{% endcapture %}
 				<img src="{{ desktop_img }}" alt="{{ page.title }}" class="drawing__img drawing__img--hidden">
 				{% include drawing-desktop.svg %}
 			</div>
 		</figure>
 		<figure>
 			<div class="drawing animation--hidden" data-vp-animation="fadeInUp" data-vp-duration="2s">
-				{% capture tablet_img %}{{ page.img_base_url }}{{ page.images.folder_name }}/{{ page.images.tablet }}{% endcapture %}
+				{% capture tablet_img %}{{ page.images.base_url }}{{ page.images.folder_name }}/{{ page.images.tablet }}{% endcapture %}
 				<img src="{{ tablet_img }}" alt="{{ page.title }}" class="drawing__img drawing__img--hidden">
 				{% include drawing-tablet.svg %}
 			</div>
 		</figure>
 		<figure>
 			<div class="drawing animation--hidden" data-vp-animation="fadeInUp" data-vp-duration="2s">
-				{% capture mobile_img %}{{ page.img_base_url }}{{ page.images.folder_name }}/{{ page.images.mobile }}{% endcapture %}
+				{% capture mobile_img %}{{ page.images.base_url }}{{ page.images.folder_name }}/{{ page.images.mobile }}{% endcapture %}
 				<img src="{{ mobile_img }}" alt="{{ page.title }}" class="drawing__img drawing__img--hidden">
 				{% include drawing-mobile.svg %}
 			</div>
