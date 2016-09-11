@@ -7,7 +7,7 @@
 
 # Site settings
 title: Jason Hee
-email: jasonheecs@gmail.com
+email: hello@jasonhee.com
 description: > # this means to ignore newlines until "baseurl:"
   Personal site of Jason Hee, a Singaporean Web developer.
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -20,7 +20,12 @@ version: 1.0
 markdown: kramdown
 exclude: ["node_modules", "gulpfile.js", "package.json", "_scss", "app", "gulp", "_js", "src"]
 include: ['.htaccess']
-permalink: /:title/
+
+# portfolio collection
+collections:
+  portfolio:
+    output: true
+    permalink: /:title/
 
 # defaults
 defaults:
@@ -30,6 +35,14 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+  -
+    scope:
+      path: ""
+      type: "portfolio"
+    values:
+      categories: "Portfolio"
+      layout: "portfolio"
+      img_base_url: "/images/works/"
 
 gems:
   - jekyll-sitemap

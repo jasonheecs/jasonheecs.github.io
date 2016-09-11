@@ -3,6 +3,10 @@ var runSequence = require('run-sequence');
 var es = require("event-stream");
 var config = require('../../config').github;
 
+/**
+ * Gulp task to deploy assets for Github Pages hosting
+ */
+
 gulp.task('github', function(callback) {
   runSequence('delete', 'jekyll:production',
   [

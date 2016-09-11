@@ -1,0 +1,70 @@
+---
+layout: default
+---
+
+<article class="post container" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="post-title animation--hidden" data-vp-animation="fadeInUp" itemprop="name headline">{{ page.title }}</h1>
+	<p class="post-link animation--hidden" data-vp-animation="fadeInUp" data-vp-delay=".15s"><a href="{{ page.link }}" target="_blank">{{ page.link }}</a></p>
+	<div class="post-content animation--hidden" data-vp-animation="fadeInUp" itemprop="articleBody" data-vp-delay=".3s">
+		{{ content }}
+	</div>
+	
+	<div class="screens">
+		<figure>
+			<div class="drawing drawing--desktop animation--hidden" data-vp-animation="fadeInUp" data-vp-duration="2s">
+				{% capture desktop_img %}{{ page.img_base_url }}{{ page.images.folder_name }}/{{ page.images.desktop }}{% endcapture %}
+				<img src="{{ desktop_img }}" alt="{{ page.title }}" class="drawing__img drawing__img--hidden">
+				{% include drawing-desktop.svg %}
+			</div>
+		</figure>
+		<figure>
+			<div class="drawing animation--hidden" data-vp-animation="fadeInUp" data-vp-duration="2s">
+				{% capture tablet_img %}{{ page.img_base_url }}{{ page.images.folder_name }}/{{ page.images.tablet }}{% endcapture %}
+				<img src="{{ tablet_img }}" alt="{{ page.title }}" class="drawing__img drawing__img--hidden">
+				{% include drawing-tablet.svg %}
+			</div>
+		</figure>
+		<figure>
+			<div class="drawing animation--hidden" data-vp-animation="fadeInUp" data-vp-duration="2s">
+				{% capture mobile_img %}{{ page.img_base_url }}{{ page.images.folder_name }}/{{ page.images.mobile }}{% endcapture %}
+				<img src="{{ mobile_img }}" alt="{{ page.title }}" class="drawing__img drawing__img--hidden">
+				{% include drawing-mobile.svg %}
+			</div>
+		</figure>
+	</div>
+</article>
+<div class="post-nav container">
+	<a class="post-nav__link post-nav__link--back" href="/#works">
+		<div class="post-nav__arrow post-nav__arrow--left">
+			{% include arrow-left.svg %}
+		</div>
+		<div class="post-nav__titles">
+			<span class="post-nav__subtitle">Back to</span>
+			<h2 class="post-nav__title">Works</h2>
+		</div>
+	</a>
+
+	{% if page.previous.url %}
+		<a class="post-nav__link post-nav__link--next" href="{{ page.previous.url }}" title="View next work">
+			<div class="post-nav__titles">
+				<span class="post-nav__subtitle">Next Work</span>
+				<h2 class="post-nav__title">{{ page.previous.title }}</h2>
+			</div>
+			<div class="post-nav__arrow post-nav__arrow--right">
+				{% include arrow-right.svg %}
+			</div>
+		</a>
+	{% else %}
+		{% for post in site.categories['Portfolio'] limit:1 %}
+	    <a class="post-nav__link post-nav__link--next" href="{{ post.url }}" title="View next work">
+			<div class="post-nav__titles">
+				<span class="post-nav__subtitle">Next Work</span>
+				<h2 class="post-nav__title">{{ post.title }}</h2>
+			</div>
+			<div class="post-nav__arrow post-nav__arrow--right">
+				{% include arrow-right.svg %}
+			</div>
+		</a>
+		{% endfor %}
+	{% endif %}
+</div>
