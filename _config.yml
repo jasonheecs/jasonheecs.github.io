@@ -14,7 +14,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://jasonhee.com" # the base hostname & protocol for your site
 github_username:  jasonheecs
 codepen_username:  jasonheecs
-version: 1.0
+version: 1.1
 
 # Build settings
 markdown: kramdown
