@@ -11,7 +11,7 @@ layout: default
 
 <section id="works" class="accordion">
   <ul class="accordion__list">
-  {% for post in site.portfolio limit:5 %}
+  {% for post in site.portfolio reversed limit:5 %}
     {% assign img_base_url = '/images/works/' %}
 
     <li class="accordion__item">

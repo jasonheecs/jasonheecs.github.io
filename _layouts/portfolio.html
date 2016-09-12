@@ -55,7 +55,7 @@ layout: default
 			</div>
 		</a>
 	{% else %}
-		{% for post in site.categories['Portfolio'] limit:1 %}
+		{% assign post = site.portfolio | last %}
 	    <a class="post-nav__link post-nav__link--next" href="{{ post.url }}" title="View next work">
 			<div class="post-nav__titles">
 				<span class="post-nav__subtitle">Next Work</span>
@@ -65,6 +65,5 @@ layout: default
 				{% include arrow-right.svg %}
 			</div>
 		</a>
-		{% endfor %}
 	{% endif %}
 </div>

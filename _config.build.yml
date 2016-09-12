@@ -18,7 +18,7 @@ version: 1.0
 
 # Build settings
 markdown: kramdown
-exclude: ["node_modules", "gulpfile.js", "package.json", "_scss", "app", "gulp", "_js", "src"]
+exclude: ["node_modules", "gulpfile.js", "package.json", "_scss", "gulp", "_js", "src"]
 include: ['.htaccess']
 
 # portfolio collection
