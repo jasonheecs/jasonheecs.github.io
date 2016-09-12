@@ -110,7 +110,7 @@ function init() {
  */
 function destroy() {
 	waypoints = [];
-	console.log(waypoints);
+	// console.log(waypoints);
 }
 
 module.exports = {

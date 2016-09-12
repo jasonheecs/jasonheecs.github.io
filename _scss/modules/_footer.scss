@@ -30,11 +30,9 @@
 	}
 }
 
-//hover
-//scss-lint:disable MergeableSelector
-.footer__links {
-	a:hover,
-	a:focus {
+.footer__link {
+	&:hover,
+	&:focus {
 		svg {
 			background: $color-primary;
 		}

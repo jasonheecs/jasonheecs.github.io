@@ -81,7 +81,8 @@ $post-nav-arrow-width: 2em;
 }
 
 .post-nav__arrow--right {
-	transform: translate3d(-$post-nav-arrow-width - .1, .05em, 0);
+	right: 0;
+	transform: translate3d(-.1em, .05em, 0);
 }
 
 .post-nav__arrow--left {
@@ -96,7 +97,7 @@ $post-nav-arrow-width: 2em;
 		transform: translate3d(-$post-nav-arrow-width, 0, 0);
 
 		.post-nav__arrow {
-			transform: translate3d(0, 0, 0);
+			transform: translate3d($post-nav-arrow-width, 0, 0);
 		}
 	}
 }

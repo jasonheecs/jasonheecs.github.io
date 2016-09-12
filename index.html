@@ -18,7 +18,7 @@ layout: default
       <div>
         <span class="accordion__img-wrapper">
           {% capture thumbnail_img %}{{ img_base_url }}{{ post.images.folder_name }}/{{ post.images.thumbnail }}{% endcapture %}
-          <img src="{{ thumbnail_img }}" alt="{{ post.title }}" title="{{ post.title }}">
+          <img src="{{ thumbnail_img }}" alt="{{ post.title }}" title="{{ post.title }}" class="accordion__img" />
         </span>
         <a class="accordion__link" href="{{ post.url | prepend: site.baseurl }}">
           <h2>{{ post.title }}</h2>

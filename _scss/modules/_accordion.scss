@@ -101,16 +101,19 @@ $accordion-item-height: 800px;
 		.accordion__item:hover {
 			width: 60%;
 
+			// scss-lint:disable NestingDepth, SelectorDepth
+			// Can't really see a way to reference the hover states of the 2 accordion elements
+			// without having more than 3 nesting levels
 			.accordion__link {
 				background: rgba($color-secondary, .45);
+
+				* {
+					opacity: 1;
+					transform: translate3d(0, 0, 0);
+				}
 			}
 
-			.accordion__link * {
-				opacity: 1;
-				transform: translate3d(0, 0, 0);
-			}
-
-			.accordion__img-wrapper img {
+			.accordion__img {
 				filter: grayscale(0%);
 			}
 

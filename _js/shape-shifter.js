@@ -392,7 +392,7 @@ var Shape = (function() {
 					}));
 				}
 
-				dots[d].s = true;;
+				dots[d].s = true;
 				dots[d].move(new Point({
 					x: shapeBuilder.dots[i].x + cx,
 					y: shapeBuilder.dots[i].y + cy,

@@ -1,5 +1,7 @@
 'use strict';
 
+/* globals Modernizr */
+
 require('modernizr');
 var ShapeShifter = require('./shape-shifter');
 var ViewportAnimator = require('./viewport-animator');
@@ -15,6 +17,9 @@ function init() {
 	Nav.init();
 	ViewportAnimator.init();
 	FooterEmail.init();
+    if (window.ga) {
+        window.ga('send', 'pageview');
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {

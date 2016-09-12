@@ -26,7 +26,7 @@ function throttle(fn, threshold, scope) {
 	return function() {
 		var context = scope || this;
 
-		var now = +new Date; //shorthand for Number(new Date)
+		var now = +new Date(); //shorthand for Number(new Date)
 		var args = arguments;
 
 		if (last && now < last + threshold) {
