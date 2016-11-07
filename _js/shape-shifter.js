@@ -553,7 +553,7 @@ module.exports = {
 		ShapeBuilder.init();
 
 		Sequencer.init();
-		Sequencer.loopAction('WEB DEVELOPER|SINGAPOREAN|VIDEO GAMER|BOOKWORM|HISTORY GEEK');
+		Sequencer.loopAction('WEB DEVELOPER|SINGAPOREAN|VIDEO GAMER|BOOKWORM|TECH ENTHUSIAST');
 
 		initialized = true;		
 
