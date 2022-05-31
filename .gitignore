@@ -2,7 +2,6 @@
 .vagrant
 node_modules
 .sass-cache
-Gemfile.lock
 
 #do not store test folders
 build
